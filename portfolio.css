@@ -1,0 +1,424 @@
+:root{
+    --yellow:var(ffb31a);
+    --background:var(3c383873);
+    
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    font-size: 100%;
+    font-family: 'Open Sans', sans-serif;
+}
+
+
+
+:root{
+    --animate-duration:800ms;
+    --animate-delay:0.9s;
+}
+
+.animate__animated.animate__fadeInDown{
+    --animate-duration:2.1s;
+}
+
+.ece.animate__animated.animate__backInDown{
+    --animate-duration:1.7s
+}
+
+.im.animate__animated.animate__fadeInDown{
+    --animate-duration:1.6s;
+}
+
+.icon.animate__animated.animate__jackInTheBox{
+    --animate-duration:1.2s
+}
+
+
+
+
+
+
+
+#navbar_main{
+    background: black;
+    position: fixed;
+    z-index: 1;
+    width: 100%;
+}
+
+.navbar-brand{
+    color:var(--yellow);
+}
+.navbar,li,a{
+    color: white;
+}
+.navbar,li,a:hover{
+    color: var(--yellow);
+}
+
+.navbar-brand:hover{
+    background: none;
+}
+
+#navbarNav{
+    flex-wrap: wrap;
+    flex-direction: row-reverse;
+}
+
+
+.navbar-toggler{
+    background: var(--yellow);
+    height: 30px;
+    width: 45px;
+    padding-left: 4px;
+    border-left-width: 0px;
+    padding-right: 0px;
+}
+
+.navbar-nav,li{
+    margin-left: 15px;
+}
+
+.li,.a:hover{
+    color: aliceblue;
+}
+
+#home{
+    background:linear-gradient(rgba(0,0,0,.5),rgba(0,0,0,.8)),url(images/back-img3.jpg);
+    background-size: cover;
+    background-position: center;
+}
+
+section{
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#home,h1{
+    color: var(--yellow);
+    font-size: 50px;
+}
+#home,ece{
+    font-size: 35px;
+}
+#home,p,auto-type{
+    color: white;
+    flex-direction: column;
+}
+@media screen and (max-width:770px){
+    #home,p,auto-type{
+        font-size: 30px;
+        align-content: center;
+        justify-content: center;
+        flex-direction: column;
+    }
+    #home,ece{
+        text-align: center;
+    }
+}
+
+.icon,.in_icon{
+    flex-direction: column;
+    padding: 15px;
+}
+
+.about_icon{
+    text-align: center;
+    padding-top: 5%;
+    padding-bottom: 4%;
+    letter-spacing: 3px;
+    text-decoration: underline;
+    text-underline-position: under;
+}
+
+.container{
+    padding: 60px;
+}
+
+#about{
+    border-radius: 5px;
+    background: var(--background);
+}
+
+.col{
+    padding: 20px;
+}
+
+#img{
+    border-right:inset var(--yellow);   
+}
+
+.rounded.float-top.img{
+    width: 13em;
+}
+
+#about:hover{
+    box-shadow: 0px 2px 2px 2px var(--yellow);
+}
+
+@media screen and (max-width:770px){
+    #img{
+        margin: 20px;
+        border-right: none;
+        padding-bottom: 50px;
+        border-bottom:inset var(--yellow)
+    }
+}
+
+
+#college{
+    border-radius: 15px;
+    background-color: #3c383873;
+}
+
+#college:hover{
+    border: 1px solid var(--yellow);
+}
+
+.inner_edu{
+    text-align: center;
+}
+
+#college,i,p{
+    font-size: 100%;
+    font-family: 'Open Sans', sans-serif;
+    
+}
+
+.edu_content,p{
+    padding: 10px;
+}
+@media screen and (min-width:770px){
+    #college,i,.edu_content{
+        text-align: center;
+    }
+}
+
+.school li{
+    width: 10px;
+    height: 10px;
+    border-radius: 100%;
+    background-color: var(--yellow);
+}
+
+.skills_card{
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: space-around;
+}
+.title1{
+    color: navy;
+    font-size: 20px;
+    text-align: center;
+}
+
+.card1{
+    background: #5ea2c4;
+}
+
+
+.skills{
+    padding: 60px;
+}
+
+.progress{
+    max-width: 400px;
+    max-height: 8px;
+    margin-bottom: 10px;
+}
+
+.skills_name{
+    margin-bottom: -2px;
+
+}
+
+@media screen and (max-width:770px){
+    #css{
+        padding-top: 0px;
+    }
+}
+.progress_1{
+    background: rgb(221, 19, 46);
+    
+}
+
+.progress_2{
+    background: rgb(209, 18, 226);
+}
+
+.progress_3{
+    background: rgb(33, 235, 157);
+}
+
+.progress_4{
+    background: rgb(136, 91, 24);
+}
+
+.progress_5{
+    background: rgb(77, 18, 187);
+}
+
+.progress_6{
+    background: rgb(92, 112, 21);
+}
+
+.progress_7{
+    background: #0894da;  
+}
+
+.progress_8{
+    background: #dd1d77; 
+}
+
+.progress_9{
+    background: #63b61f;
+    
+}
+
+.contact_info{
+    text-align: center;
+}
+
+/*.contact_form{
+    background: #ffffff;
+}*/
+
+.contact_img{
+    max-width: 320px;
+    margin-left: 30px;
+    border-radius: 30px;
+}
+
+@media screen and (max-width:770px){
+    .contact_img{
+        width: 200px;
+        margin: 80px;
+        margin-top: 20px;
+        border-radius: 10px;
+    }
+}
+
+/*.name_label,.email_label{
+    padding-right:50px;
+}
+.phone_label{
+    padding-right: 19px;
+}
+#name,#email,#phone_no{
+    width: 30em;
+    height: 38px;
+}
+
+.form-group{
+    padding-bottom: 20px;
+}
+
+/*@media screen and (max-width:770px){
+    #name,#email,#phone_no{
+
+    }
+
+    .name_label,.email_label{
+
+    }
+
+    .phone_label{
+
+    }
+
+    .form-group{
+
+    }
+
+}*/
+
+.form,label{
+    color: var(--yellow);
+}
+
+.entire_form{
+    padding-left: 3em;
+}
+
+#name{
+    color: var(--yellow);
+   
+    letter-spacing: 2px;
+}
+
+#email,#phone,#message{
+    color: var(--yellow);
+    letter-spacing: 2px;
+}
+
+#btn{
+    color: black;
+    background: var(--yellow);
+    width: auto;
+    border-radius: 10px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin: auto;
+    font-family: fantasy;
+    letter-spacing: 3px;
+}
+
+#btn:hover{
+    background: #8cd995;
+}
+
+
+.map{
+    width: 600px;
+    height: 300px;
+    
+}
+
+@media screen and (max-width:770px){
+    .map{
+        width: inherit;
+        height: inherit;
+        margin-left: 0%;
+    }
+}
+@media screen and (min-width:900px){
+    .map{
+        margin: auto;
+        margin-left: 150px;
+    }
+}
+
+.footer{
+    border-top: 5px solid;
+    color: var(--yellow);
+    width: 100%;
+    height: 150px;
+}
+
+.connect{
+    font-size: 1.2rem;
+    font-family: fantasy;
+    letter-spacing: 3px;
+    text-align: center;
+    padding-top: 20px;
+}
+
+.connect_icons{
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: space-evenly;
+}
+
+.twitter{
+    padding-top: 16px;
+}
