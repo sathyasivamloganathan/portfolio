@@ -261,30 +261,30 @@
 <div class="contact_form">
 	<div class="row" style="width: 100%;">
 		<div class="col ">
-			<img src="images/BlackThemeLogo.png" alt="BlackThemeLogo" class="contact_img">
+			<img src="images/BlackThemeLogo.png" alt="BlackThemeLogo" class="contact_img"/>
 		</div>
 
 
 		<div class="col entire_form"  id="contact_form">
-			<form class="contact_form">
+			<form class="contact_form" action="https://formspree.io/f/xwkzkbwo" method="POST">
 				<div class="form-group">
 				  <label for="name">Name : </label>
-				  <input type="name" class="form-control" id="name" placeholder="Enter your name......">
+				  <input type="name" class="form-control" id="name" name="name" placeholder="Enter your name......" required/>
 				</div>
 
 				<div class="form-group">
 					<label for="email">Email Id : </label>
-					<input type="email" class="form-control" id="email" placeholder="name@example.com">
+					<input type="email" class="form-control" id="email" name="email" placeholder="name@example.com" required/>
 				  </div>
 
 				  <div class="form-group">
 					<label for="number">Phone no : </label>
-					<input class="form-control" id="phone" placeholder="Enter your phone number">
+					<input class="form-control" id="phone" type="number" name="number" placeholder="Enter your phone number" required/>
 				  </div>
 				
 				<div class="form-group">
 				  <label for="message">Message</label>
-				  <textarea class="form-control" id="message" rows="3"></textarea>
+				  <textarea class="form-control" id="message" name="message" rows="3" required></textarea>
 				</div>
 
 				<div class="form">
@@ -319,34 +319,11 @@
 	</div>
 </div>
 
+
+
 </body>
 
-<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
-<script src="https://smtpjs.com/v3/smtp.js"></script>
 
-<!--<script>
-	var btn = document.getElementById('btn');
-	btn.addEventListener('click',function(e){
-		e.preventDefault()
-		var name = document.getElementById('name').value;
-		var email = document.getElementById('email').value;
-		var phone = document.getElementById('phone').value;
-		var message = document.getElementById('message').value;
-		var body = 'name: ' +name + '<br/> email: ' + email + '<br/> phone: ' + phone + '<br/> message: ' + message;
-
-		Email.send({
-		Host : "smtp.gmail.com",
-		Username : "sathyasivam2004@gmail.com",
-		Password : "jegtujbxzjxcjjfx",
-		To : 'sathyasivam2004@gmail.com',
-		From : email,
-		Subject : name,
-		Body : body
-	}).then(
-	message => alert("Your response has been successfully submitted !!")
-	);
-	})
-</script>-->
 
 
 
