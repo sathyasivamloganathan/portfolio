@@ -36,6 +36,15 @@
   <script src="https://kit.fontawesome.com/a076d05399.js " crossorigin="anonymous"></script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
   
+  <!-- particle js -->
+  <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+  <script>
+	particlesJS.load('particle',
+	'particles.json',
+	function(){
+	  console.log('particles is loaded')
+	})
+</script>
 
   <!-- Font -->
   	<link rel="preconnect" href="https://fonts.googleapis.com">
@@ -43,8 +52,8 @@
 	<link href="https://fonts.googleapis.com/css2?family=Beau+Rivage&family=Montserrat&family=My+Soul&family=Oleo+Script+Swash+Caps&family=PT+Sans:wght@400;700&family=Tapestry&display=swap" rel="stylesheet">
  
 </head>
-<body style="background-color: black;">
-
+<body>
+	
 	<nav class="navbar navbar-expand-lg " id="navbar_main">
 		<a class="navbar-brand" >PORTFOLIO</a>
 		<button class="navbar-toggler fa fa-bars" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -72,9 +81,9 @@
 		</div>
 	  </nav>
 
-
+	  
 <section id="home">
-	
+	<div  id="particle"></div>
 	<p class="name">Sathya Sivam</p>
 	<div class="ece animate__animated animate__backInDown" >Electronics and Communication Engineering Student</div>
 	<p class="im animate__animated animate__fadeInDown">I'm <span class="auto-type" style="color: #ffb31a;"></span></p>
@@ -96,18 +105,18 @@
 			loop: true
 		})
 	</script>
-</section>
-	
+</section>	
 <div id="a" >
+	
 	<div class="about_icon">   
 		<i class="fa fa-user" style="font-size: 20px; color: #ffb31a;"><span style="color: #ffb31a; font-size: 20px;" class="about_icon">    ABOUT ME</span></i>
 	</div>
 	<div class="container"> 
 		<div class="row " id="about">
-			<div class="col" id="img">
+			<!-- <div class="col" id="img">
 				<img  src="images/myimg.jpg" alt="myimg" class="rounded float-top img" >
 				
-			</div>
+			</div> -->
 			<div class="col">
 				<div class="abt">
 					<p>Hello 👋, I'm Sathya Sivam.L
@@ -120,7 +129,9 @@
 	</div>
 </div>
 
+
 <div class="education" id="edu">
+	
 	<div class="about_icon">
 		<i class="fa fa-graduation-cap" style="font-size: 20px; text-align: center; color: #ffb31a;"><span style="color: #ffb31a; font-size: 20px;" class="about_icon">EDUCATION</span></i>
 	</div>
@@ -167,6 +178,7 @@
 			<div class="container">
 		
 				<div class="col" id="college">
+					
 							<i class="fa fa-graduation-cap" style="font-size: 20px; margin-top: 20px;   text-align: center; color: #8cd995;"><span style="color: #8cd995; font-size: 20px;" class="inner_edu" >Secondary School Leaving Certificate</span></i>
 					<div class="edu_content">
 							
@@ -192,7 +204,6 @@
 
 
 <div id="skill" >
-
 	<div class="about_icon">
 		<i class="fa fa-cogs" style="font-size: 20px; color: #ffb31a;"><span style="color: #ffb31a; font-size: 20px;" class="about_icon">    SKILLS</span></i>
 	</div>
@@ -201,50 +212,58 @@
 	<div class="container skills">
 	<div class="row">
 		<div class="col">
-				<p class="skills_name">C Programming</p>
+
+				<p class="skills_name">React.js</p>
 				<div class="progress " id="one">
-					<div class="progress-bar progress_1" role="progressbar"  style="width: 80%;"></div>
+					<div class="progress-bar progress_1" role="progressbar" style="width: 46%;" ></div>
 				</div>
 				
-
-				<p class="skills_name">C++ Programming</p>
-				<div class="progress">
-					<div class="progress-bar progress_2" role="progressbar"  style="width: 36%;"></div>
-				</div>
-
-				<p class="skills_name"> Python</p>
-				<div class="progress">
-					<div class="progress-bar progress_3" role="progressbar"  style="width: 73%;"></div>
-				</div>
-
 				<p class="skills_name">HTML</p>
 				<div class="progress">
 					<div class="progress-bar progress_4" role="progressbar"  style="width: 78%;"></div>
 				</div>
 
+				<p class="skills_name" id="css">CSS</p>
+					<div class="progress">
+						<div class="progress-bar progress_5" role="progressbar"  style="width: 65%;"></div>
+				</div>
+
 				<p class="skills_name">Javascript</p>
 				<div class="progress">
-					<div class="progress-bar progress_9" role="progressbar"  style="width: 20%;"></div>
+					<div class="progress-bar progress_9" role="progressbar"  style="width: 60%;"></div>
+				</div>
+
+				<p class="skills_name">Bootstrap</p>
+					<div class="progress">
+						<div class="progress-bar progress_7" role="progressbar"  style="width: 62%;"></div>
 				</div>
 				
 		</div>
 		
 		<div class="col" id="skills_right">
-				
-					<p class="skills_name" id="css">CSS</p>
-					<div class="progress">
-						<div class="progress-bar progress_5" role="progressbar"  style="width: 65%;"></div>
+
+					<p class="skills_name">C Programming</p>
+					<div class="progress " id="one">
+						<div class="progress-bar progress_1" role="progressbar"  style="width: 70%;"></div>
 					</div>
+
+					<p class="skills_name">C++ Programming</p>
+					<div class="progress">
+						<div class="progress-bar progress_2" role="progressbar"  style="width: 36%;"></div>
+					</div>
+
+					<p class="skills_name"> Python</p>
+					<div class="progress">
+						<div class="progress-bar progress_3" role="progressbar"  style="width: 63%;"></div>
+					</div>
+				
 
 					<p class="skills_name">Figma/Photoshop</p>
 					<div class="progress">
 						<div class="progress-bar progress_6" role="progressbar"  style="width: 28%;"></div>
 					</div>
 
-					<p class="skills_name">Bootstrap</p>
-					<div class="progress">
-						<div class="progress-bar progress_7" role="progressbar"  style="width: 62%;"></div>
-					</div>
+				
 
 					<p class="skills_name">jQuery</p>
 					<div class="progress">
@@ -256,6 +275,7 @@
 </div>
 
 <div id="con">
+	
 	<div class="about_icon">
 		<i class="fa fa-phone-square" style="font-size: 20px; color: #ffb31a;"><span style="color: #ffb31a; font-size: 20px;" class="about_icon">     CONTACT    </span></i>
 	</div>
@@ -270,6 +290,7 @@
 </div>
 
 <div class="contact_form">
+	
 	<div class="row" style="width: 100%;">
 		<div class="col ">
 			<img src="images/BlackThemeLogo.png" alt="BlackThemeLogo" class="contact_img"/>
@@ -325,16 +346,10 @@
 				<a href="https://in.linkedin.com/in/sathya-sivam-loganathan-7a3958228?trk=public_profile_samename-profile" target="blank"><i class="fa fa-linkedin in_icon" style="font-size: 30px; color: #ffb31a;" ></i></a>
 				<a href="https://github.com/sathyasivamloganathan" target="blank"><i class="fa fa-github in_icon" style="font-size: 30px; color: #ffb31a;"></i></a>
 				<a href="https://www.instagram.com/sathya_sivam_1/?hl=en" target="blank"><i class="fa fa-instagram in_icon" style="font-size: 30px; color: #ffb31a;"></i></a>
-		        <a href="https://twitter.com/SathyaSivam2004" target="blank" class="twitter"><i class="fa fa-twitter" style="font-size: 30px; color: #ffb31a;"></i></a>
 		</div>
 	</div>
 </div>
-
-
-
 </body>
-
-
 
 
 
