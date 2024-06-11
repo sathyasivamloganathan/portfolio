@@ -1,31 +1,3 @@
-// import React from "react";
-// // import Dots from "../components/design/Dots";
-
-// const About = () => {
-//   return (
-//     <section className="bg-gray-200 pb-9 pt-6 m-5 rounded-lg">
-//       <h3 className="text-center text-[25px] font-bold">
-//         About <span className="text-gray-400">Me</span>
-//       </h3>
-
-//       <section className="m-6 lg:m-10 sm:m-5 text-center rounded-lg">
-//         <p className="text-center pt-10 pb-10">
-//           lorem jnwedijnj j ewndox ewxnweoixn jc nuhchlorem jnwedijnj j ewndox
-//           ewxnweoixn jc nuhch lorem jnwedijnj j ewndox ewxnweoixn jc nuhch lorem
-//           jnwedijnj j ewndox ewxnweoixn jc nuhch lorem jnwedijnj j ewndox
-//           ewxnweoixn jc nuhch lorem jnwedijnj j ewndox ewxnweoixn jc nuhch lorem
-//           jnwedijnj j ewndox ewxnweoixn jc nuhch lorem jnwedijnj j ewndox
-//           ewxnweoixn jc nuhch lorem jnwedijnj j ewndox ewxnweoixn jc nuhch lorem
-//           jnwedijnj j ewndox ewxnweoixn jc nuhch
-//         </p>
-//         {/* <Dots /> */}
-//       </section>
-//     </section>
-//   );
-// };
-
-// export default About;
-
 import React from "react";
 import ProfilePic from "../assets/profile-pic (1).png";
 import Resume from "../assets/Resume/Sathya Sivam L_Resume.pdf";
@@ -38,17 +10,25 @@ const AboutSection = () => {
 
       <div className="flex flex-col md:flex-row items-center p-6 rounded-lg shadow-lg space-y-4 md:space-y-0 ml-5 mr-5">
         <div className="md:w-1/2 p-4 bg-white rounded-lg shadow-lg">
-          <h2 className="text-2xl font-bold mb-2">Lorem ipsum dolor sit.</h2>
-          <h3 className="text-xl mb-4">Lorem ipsum dolor sit.</h3>
+          {/* <h2 className="text-2xl font-bold mb-2">Lorem ipsum dolor sit.</h2>
+          <h3 className="text-xl mb-4">Lorem ipsum dolor sit.</h3> */}
           <p className="text-gray-700 mb-4">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Laborum,
-            accusantium quibusdam dolor fuga quis quidem soluta sed maxime
-            dolorem fugit esse corporis animi rerum excepturi doloribus.
-            Voluptatum, illum! Architecto, fugit.
+            A passionate software engineering student with a knack for crafting
+            innovative solutions. Proficient in React.js, Tailwind CSS,
+            Express.js, Flask, MongoDB, and React Query. Successfully completed
+            projects including an Intelligent radiologist assistant(Knee Mri)
+            utilizing React.js, TailwindCss, Flask, and MongoDB, resulting in a
+            75% reduction in analysis time of radiologist. With a track record
+            of solving over 200 problems on LeetCode, Coding Ninjas, and
+            HackerRank using Java, dedicated to continuous learning and growth.
+            Currently seeking internship and full-time opportunities to apply
+            and expand skills. Let's connect and collaborate on exciting software
+            development ventures!
           </p>
           <div className="flex mt-10 space-x-4">
             <a
-              href={Resume} download
+              href={Resume}
+              download
               className="border-2 border-gray-600 text-gray-600 py-2 px-4 rounded hover:bg-gray-600 hover:text-white transition duration-300 flex items-center space-x-2"
             >
               <span>Resume</span>
