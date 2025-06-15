@@ -75,7 +75,7 @@ const Education = () => {
     },
   ];
   return (
-    <div className="flex items-center justify-center  min-h-screen">
+    <div className="flex items-center justify-center">
       <div className="py-10 w-full">
         <div className="max-w-5xl mx-5 lg:mx-auto md:mx-5">
           <Title title={"Education"} shadowColor="rgba(0,0,0,0.3)" />

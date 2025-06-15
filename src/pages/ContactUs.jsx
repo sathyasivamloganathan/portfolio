@@ -10,7 +10,10 @@ const ContactUs = () => {
 //   };
 
   return (
-    <div className="flex items-center justify-center  min-h-screen">
+    <div
+      className="flex items-center justify-center"
+      id="contact"
+    >
       <div className="py-10 w-full">
         <div className="max-w-5xl mx-5 lg:mx-auto md:mx-5">
           <Title title={"Contact Us"} shadowColor="rgba(0,0,0,0.3)" />
@@ -19,7 +22,7 @@ const ContactUs = () => {
               <div className="bg-white rounded-lg p-6 md:flex-1">
                 <h3 className="text-xl font-semibold mb-4">Contact Form</h3>
                 <form
-                //   onSubmit={handleSubmit}
+                  //   onSubmit={handleSubmit}
                   action="https://formspree.io/f/mbjnndne"
                   method="POST"
                 >

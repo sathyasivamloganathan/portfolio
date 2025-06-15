@@ -1,0 +1,33 @@
+pipeline {
+  agent any
+
+  tools {
+    nodejs 'node18' // Or whatever name you used in Jenkins config
+  }
+
+  stages {
+    stage('Clone Repo') {
+      steps {
+        git 'https://github.com/sathyasivamloganathan/portfolio.git'
+      }
+    }
+
+    stage('Install Dependencies') {
+      steps {
+        sh 'npm install'
+      }
+    }
+
+    stage('Build Project') {
+      steps {
+        sh 'npm run build'
+      }
+    }
+
+    stage('Deploy to GitHub Pages') {
+      steps {
+        sh 'npm run deploy'
+      }
+    }
+  }
+}
