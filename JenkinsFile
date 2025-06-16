@@ -24,21 +24,19 @@ pipeline {
         }
         stage('Clean gh-pages branch') {
             steps {
-                script {
-                    // Try to delete local gh-pages ref and branch, ignore errors
-                    bat '''
-                        git update-ref -d refs/heads/gh-pages || echo No gh-pages ref to delete
-                        git branch -D gh-pages || echo No gh-pages branch to delete
-                    '''
-                }
+                bat '''
+                    git update-ref -d refs/heads/gh-pages || echo No gh-pages ref to delete
+                    git branch -D gh-pages 2>nul || echo No gh-pages branch to delete
+                    exit /b 0
+                '''
             }
         }
         stage('Deploy to GitHub Pages') {
             steps {
-                // Deploy dist folder to gh-pages branch
                 bat 'npx gh-pages -d dist --branch=gh-pages'
             }
         }
+
     }
     post {
         failure {
