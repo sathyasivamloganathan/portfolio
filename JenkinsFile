@@ -43,14 +43,14 @@ pipeline {
         stage('Clean gh-pages Branch') {
             steps {
                 bat '''
-                    git fetch origin gh-pages || echo "No remote gh-pages branch"
-                    git checkout gh-pages || git checkout -b gh-pages
-                    git reset --hard origin/main
-                    git push origin gh-pages --force
+                git fetch origin gh-pages || echo "No remote gh-pages branch"
+                git checkout -b gh-pages || git checkout gh-pages
+                git reset --hard origin/dev
+                git push origin gh-pages --force
                 '''
-
             }
         }
+
 
         stage('Deploy to GitHub Pages') {
             steps {
