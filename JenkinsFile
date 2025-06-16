@@ -30,10 +30,9 @@ pipeline {
         stage('Clean gh-pages Branch') {
             steps {
                 bat '''
-                    git push origin --delete gh-pages || echo "No remote gh-pages branch to delete"
-                    git fetch --prune
-                    git branch -D gh-pages || echo "No local gh-pages branch to delete"
-                    git update-ref -d refs/heads/gh-pages || echo "No local gh-pages ref to delete"
+                set GIT_TERMINAL_PROMPT=0
+                git remote set-url origin https://<your_token>@github.com/sathyasivamloganathan/portfolio.git
+                git push origin --delete gh-pages || echo "No remote gh-pages branch to delete"
                 '''
             }
         }
