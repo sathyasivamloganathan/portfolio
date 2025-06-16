@@ -1,50 +1,49 @@
 pipeline {
     agent any
-
     stages {
-        stage('Clone Repo') {
+        stage('Checkout') {
             steps {
-                git branch: 'dev', url: 'https://github.com/sathyasivamloganathan/portfolio.git'
+                checkout scm
             }
         }
-
         stage('Install Dependencies') {
             steps {
                 bat 'npm install'
             }
         }
-
-        // ✅ New Stage: Security audit and automatic fixes
-        stage('Audit & Fix Vulnerabilities') {
-            steps {
-                bat(script: 'npm audit fix', returnStatus: true)
-            }
-        }
-
-
-        stage('Build Project') {
+        stage('Build') {
             steps {
                 bat 'npm run build'
             }
         }
-
         stage('Configure Git') {
             steps {
                 bat 'git config --global user.email "sathyasivamloganathan@gmail.com"'
                 bat 'git config --global user.name "Sathya Sivam Loganathan"'
             }
         }
-
         stage('Clean gh-pages branch') {
-          steps {
-            bat 'git branch -D gh-pages || echo "No local gh-pages branch to delete"'
-          }
+            steps {
+                script {
+                    // Delete local gh-pages branch, ignore failure if branch doesn't exist
+                    def cleanBranchCmd = 'git branch -D gh-pages || echo "No local gh-pages branch to delete"'
+                    bat cleanBranchCmd
+                }
+            }
         }
-
         stage('Deploy to GitHub Pages') {
             steps {
-                bat 'npm run deploy'
+                // Run your deploy command here, example:
+                bat 'npx gh-pages -d dist --branch=gh-pages'
             }
+        }
+    }
+    post {
+        failure {
+            echo 'Build failed.'
+        }
+        success {
+            echo 'Build and deploy succeeded!'
         }
     }
 }
