@@ -18,29 +18,30 @@ pipeline {
         }
         stage('Configure Git') {
             steps {
-                bat 'git config --global user.email "sathyasivamloganathan@gmail.com"'
-                bat 'git config --global user.name "Sathya Sivam Loganathan"'
+                bat 'git config --global user.email "youremail@example.com"'
+                bat 'git config --global user.name "Your Name"'
             }
         }
         stage('Clean gh-pages branch') {
             steps {
                 script {
-                    // Delete local gh-pages branch, ignore failure if branch doesn't exist
-                    def cleanBranchCmd = 'git branch -D gh-pages || echo "No local gh-pages branch to delete"'
-                    bat cleanBranchCmd
+                    def result = bat(returnStatus: true, script: 'git branch -D gh-pages')
+                    if (result != 0) {
+                        echo 'No local gh-pages branch to delete'
+                    }
                 }
             }
         }
         stage('Deploy to GitHub Pages') {
             steps {
-                // Run your deploy command here, example:
+                // Deploy dist folder to gh-pages branch
                 bat 'npx gh-pages -d dist --branch=gh-pages'
             }
         }
     }
     post {
         failure {
-            echo 'Build failed.'
+            echo 'Build or deploy failed.'
         }
         success {
             echo 'Build and deploy succeeded!'
