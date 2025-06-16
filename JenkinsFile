@@ -1,7 +1,18 @@
 pipeline {
     agent any
 
+    environment {
+        GIT_USER_EMAIL = "sathyasivamloganathan@gmail.com"
+        GIT_USER_NAME = "sathyasivamloganathan"
+    }
+
     stages {
+        stage('Clean Workspace') {
+            steps {
+                cleanWs()
+            }
+        }
+
         stage('Checkout SCM') {
             steps {
                 checkout scm
@@ -22,17 +33,20 @@ pipeline {
 
         stage('Configure Git') {
             steps {
-                bat 'git config --global user.email "youremail@example.com"'
-                bat 'git config --global user.name "Your Name"'
+                bat """
+                    git config --global user.email "%GIT_USER_EMAIL%"
+                    git config --global user.name "%GIT_USER_NAME%"
+                """
             }
         }
 
         stage('Clean gh-pages Branch') {
             steps {
                 bat '''
-                set GIT_TERMINAL_PROMPT=0
-                git remote set-url origin https://***REMOVED***@github.com/sathyasivamloganathan/portfolio.git
-                git push origin --delete gh-pages || echo "No remote gh-pages branch to delete"
+                    git push origin --delete gh-pages || echo No remote gh-pages branch to delete
+                    git fetch --prune
+                    git branch -D gh-pages || echo No local gh-pages branch to delete
+                    git update-ref -d refs/heads/gh-pages || echo No local gh-pages ref to delete
                 '''
             }
         }
@@ -42,11 +56,12 @@ pipeline {
                 bat 'npx gh-pages -d dist -b gh-pages -f'
             }
         }
-
-
     }
 
     post {
+        success {
+            echo 'Build and deploy succeeded!'
+        }
         failure {
             echo 'Build or deploy failed.'
         }
