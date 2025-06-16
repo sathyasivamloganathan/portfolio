@@ -31,7 +31,7 @@ pipeline {
             steps {
                 bat '''
                 set GIT_TERMINAL_PROMPT=0
-                git remote set-url origin https://<your_token>@github.com/sathyasivamloganathan/portfolio.git
+                git remote set-url origin https://***REMOVED***@github.com/sathyasivamloganathan/portfolio.git
                 git push origin --delete gh-pages || echo "No remote gh-pages branch to delete"
                 '''
             }
