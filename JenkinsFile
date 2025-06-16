@@ -39,10 +39,10 @@ pipeline {
 
         stage('Deploy to GitHub Pages') {
             steps {
-                // Deploy and force push to gh-pages branch
-                bat 'npx gh-pages -d dist --branch=gh-pages --force'
+                bat 'npx gh-pages -d dist -b gh-pages -f'
             }
         }
+
     }
 
     post {
