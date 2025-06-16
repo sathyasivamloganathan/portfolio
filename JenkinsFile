@@ -35,6 +35,12 @@ pipeline {
             }
         }
 
+        stage('Clean gh-pages branch') {
+          steps {
+            bat 'git branch -D gh-pages || echo "No local gh-pages branch to delete"'
+          }
+        }
+
         stage('Deploy to GitHub Pages') {
             steps {
                 bat 'npm run deploy'
