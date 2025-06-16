@@ -1,33 +1,43 @@
 pipeline {
-  agent any
+    agent any
 
-  tools {
-    nodejs 'node18' // Or whatever name you used in Jenkins config
-  }
+    stages {
+        stage('Clone Repo') {
+            steps {
+                git branch: 'dev', url: 'https://github.com/sathyasivamloganathan/portfolio.git'
+            }
+        }
 
-  stages {
-    stage('Clone Repo') {
-      steps {
-        git 'https://github.com/sathyasivamloganathan/portfolio.git'
-      }
+        stage('Install Dependencies') {
+            steps {
+                bat 'npm install'
+            }
+        }
+
+        // ✅ New Stage: Security audit and automatic fixes
+        stage('Audit & Fix Vulnerabilities') {
+            steps {
+                bat 'npm audit fix'
+            }
+        }
+
+        stage('Build Project') {
+            steps {
+                bat 'npm run build'
+            }
+        }
+
+        stage('Configure Git') {
+            steps {
+                bat 'git config --global user.email "sathyasivamloganathan@gmail.com"'
+                bat 'git config --global user.name "Sathya Sivam Loganathan"'
+            }
+        }
+
+        stage('Deploy to GitHub Pages') {
+            steps {
+                bat 'npm run deploy'
+            }
+        }
     }
-
-    stage('Install Dependencies') {
-      steps {
-        sh 'npm install'
-      }
-    }
-
-    stage('Build Project') {
-      steps {
-        sh 'npm run build'
-      }
-    }
-
-    stage('Deploy to GitHub Pages') {
-      steps {
-        sh 'npm run deploy'
-      }
-    }
-  }
 }
