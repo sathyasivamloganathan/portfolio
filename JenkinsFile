@@ -17,9 +17,10 @@ pipeline {
         // ✅ New Stage: Security audit and automatic fixes
         stage('Audit & Fix Vulnerabilities') {
             steps {
-                bat 'npm audit fix'
+                bat(script: 'npm audit fix', returnStatus: true)
             }
         }
+
 
         stage('Build Project') {
             steps {
