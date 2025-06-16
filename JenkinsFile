@@ -29,10 +29,11 @@ pipeline {
 
         stage('Clean gh-pages Branch') {
             steps {
-                // Delete local gh-pages branch and refs if they exist
                 bat '''
-                git branch -D gh-pages || echo No local gh-pages branch to delete
-                git update-ref -d refs/heads/gh-pages || echo No local gh-pages ref to delete
+                    git push origin --delete gh-pages || echo "No remote gh-pages branch to delete"
+                    git fetch --prune
+                    git branch -D gh-pages || echo "No local gh-pages branch to delete"
+                    git update-ref -d refs/heads/gh-pages || echo "No local gh-pages ref to delete"
                 '''
             }
         }
@@ -42,6 +43,7 @@ pipeline {
                 bat 'npx gh-pages -d dist -b gh-pages -f'
             }
         }
+
 
     }
 
