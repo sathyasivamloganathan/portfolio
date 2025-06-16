@@ -43,11 +43,12 @@ pipeline {
         stage('Clean gh-pages Branch') {
             steps {
                 bat '''
-                    git push origin --delete gh-pages || echo No remote gh-pages branch to delete
-                    git fetch --prune
-                    git branch -D gh-pages || echo No local gh-pages branch to delete
-                    git update-ref -d refs/heads/gh-pages || echo No local gh-pages ref to delete
+                    git fetch origin gh-pages || echo "No remote gh-pages branch"
+                    git checkout gh-pages || git checkout -b gh-pages
+                    git reset --hard origin/main
+                    git push origin gh-pages --force
                 '''
+
             }
         }
 
