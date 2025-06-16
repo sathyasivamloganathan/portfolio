@@ -23,14 +23,17 @@ pipeline {
             }
         }
         stage('Clean gh-pages branch') {
-            steps {
-                script {
-                    def result = bat(returnStatus: true, script: 'git branch -D gh-pages')
-                    if (result != 0) {
-                        echo 'No local gh-pages branch to delete'
-                    }
-                }
+        steps {
+            script {
+                // Delete any existing refs or branches named gh-pages
+                bat '''
+                    git update-ref -d refs/heads/gh-pages || echo No gh-pages ref to delete
+                    git branch -D gh-pages || echo No gh-pages branch to delete
+                '''
             }
+        }
+    }
+
         }
         stage('Deploy to GitHub Pages') {
             steps {
