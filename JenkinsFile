@@ -1,49 +1,53 @@
 pipeline {
     agent any
+
     stages {
-        stage('Checkout') {
+        stage('Checkout SCM') {
             steps {
                 checkout scm
             }
         }
+
         stage('Install Dependencies') {
             steps {
                 bat 'npm install'
             }
         }
+
         stage('Build') {
             steps {
                 bat 'npm run build'
             }
         }
+
         stage('Configure Git') {
             steps {
                 bat 'git config --global user.email "youremail@example.com"'
                 bat 'git config --global user.name "Your Name"'
             }
         }
-        stage('Clean gh-pages branch') {
+
+        stage('Clean gh-pages Branch') {
             steps {
+                // Delete local gh-pages branch and refs if they exist
                 bat '''
-                    git update-ref -d refs/heads/gh-pages || echo No gh-pages ref to delete
-                    git branch -D gh-pages 2>nul || echo No gh-pages branch to delete
-                    exit /b 0
+                git branch -D gh-pages || echo No local gh-pages branch to delete
+                git update-ref -d refs/heads/gh-pages || echo No local gh-pages ref to delete
                 '''
             }
         }
+
         stage('Deploy to GitHub Pages') {
             steps {
-                bat 'npx gh-pages -d dist --branch=gh-pages'
+                // Deploy and force push to gh-pages branch
+                bat 'npx gh-pages -d dist --branch=gh-pages --force'
             }
         }
-
     }
+
     post {
         failure {
             echo 'Build or deploy failed.'
-        }
-        success {
-            echo 'Build and deploy succeeded!'
         }
     }
 }
